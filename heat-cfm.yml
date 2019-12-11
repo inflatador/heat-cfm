@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Demonstration of CFN compatibility in Rackspace Cloud
+             Orchestration
+
+Resources:
+
+# works
+
+  exampleServer:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: general1-1
+      ImageId: "CentOS 7 (PVHVM)"
+# you must use an existing SSH key; CFN does not support dynamic generation
+      KeyName: rackesc
+
+
+
+  # does not work
+  # exampleVol:
+  #   Type: AWS::EC2::Volume
+  #   Properties:
+  #       Size: 50
+  #       VolumeType: SSD
+
+  # does not work
+  # exampleBucket:
+  #   Type: AWS::S3::Bucket
